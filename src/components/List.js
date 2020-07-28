@@ -9,7 +9,7 @@ class List extends Component {
       return <Card key={i} pokemon={pm} />;
     });
     console.log(this.props.pokemons);
-    return <div>{pokeCard}</div>;
+    return <ul className="list">{pokeCard}</ul>;
   }
 }
 

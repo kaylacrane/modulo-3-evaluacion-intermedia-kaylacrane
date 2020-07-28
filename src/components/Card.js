@@ -6,14 +6,14 @@ class Card extends Component {
     console.log(pokemon);
     const { name, id, types, url } = pokemon;
     const poketypes = types.map((type) => {
-      return <li>{type}</li>;
+      return <li className="typeTag">{type.toUpperCase()}</li>;
     });
     return (
-      <div className="card" id={id}>
+      <li className="card" id={id}>
         <img src={url} alt="pokemon" />
         <h2 className="name">{name}</h2>
-        <ul className="tags">{poketypes}</ul>
-      </div>
+        <ul className="tagsList">{poketypes}</ul>
+      </li>
     );
   }
 }
