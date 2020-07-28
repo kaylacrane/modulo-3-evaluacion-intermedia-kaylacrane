@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Card extends Component {
+class Pokemon extends Component {
   render() {
     const pokemon = this.props.pokemon;
     console.log(pokemon);
@@ -18,4 +18,4 @@ class Card extends Component {
   }
 }
 
-export default Card;
+export default Pokemon;

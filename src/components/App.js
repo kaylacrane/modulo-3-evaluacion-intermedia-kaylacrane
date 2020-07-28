@@ -1,7 +1,7 @@
 import React from 'react';
 import '../stylesheets/App.css';
 import pokedata from '../data/pokemons.json';
-import List from './List';
+import PokeList from './PokeList';
 
 class App extends React.Component {
   constructor(props) {
@@ -12,7 +12,8 @@ class App extends React.Component {
     console.log(this.state);
     return (
       <div className="App">
-        <List pokemons={this.state} />
+        <h1 className="pageTitle">My Pokemon List</h1>
+        <PokeList pokemons={this.state} />
       </div>
     );
   }
