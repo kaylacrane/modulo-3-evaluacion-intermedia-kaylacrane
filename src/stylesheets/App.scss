@@ -11,7 +11,8 @@
   padding: 25px;
 }
 .pageTitle {
-  margin: auto;
+  width: fit-content;
+  margin: auto auto 30px;
   text-align: center;
   font-size: 40px;
   padding: 20px 60px;
@@ -19,7 +20,6 @@
   background-color: lightgreen;
   display: block;
   border-radius: 50px;
-  width: fit-content;
   border: 5px solid lightblue;
 }
 .list {
@@ -37,9 +37,16 @@
   flex-direction: column;
   align-items: center;
   padding: 10px 0;
+  transition: all ease 0.5s;
+  &:hover {
+    transform: scale(1.2);
+    border: 1px solid lightblue;
+    box-shadow: 0 0 10px 5px lightgreen;
+  }
 }
 .name {
   background-color: lightgreen;
+  padding: 5px 0;
   color: black;
   width: 100%;
   text-align: center;
@@ -51,7 +58,7 @@
   justify-content: center;
 }
 .typeTag {
-  font-size: 12px;
+  font-size: 14px;
   background-color: lightblue;
   border-radius: 10px;
   text-align: center;

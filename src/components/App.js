@@ -1,5 +1,5 @@
 import React from 'react';
-import '../stylesheets/App.css';
+import '../stylesheets/App.scss';
 import pokedata from '../data/pokemons.json';
 import PokeList from './PokeList';
 
