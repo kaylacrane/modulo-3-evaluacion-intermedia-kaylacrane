@@ -21,6 +21,21 @@ class App extends React.Component {
     }
     this.setState({ favorites: updatedList });
   }
+  componentDidMount() {
+    const storage = localStorage.getItem('favorite pokemons');
+    if (storage) {
+      const updateFavorites = JSON.parse(storage);
+      this.setState({ favorites: updateFavorites });
+    }
+  }
+  componentDidUpdate() {
+    const favsList = this.state.favorites;
+    if (favsList.length !== 0) {
+      localStorage.setItem('favorite pokemons', JSON.stringify(favsList));
+    } else if (favsList.length === 0) {
+      localStorage.removeItem('favorite pokemons');
+    }
+  }
   render() {
     return (
       <div className="App">

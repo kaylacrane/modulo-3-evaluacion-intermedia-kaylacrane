@@ -15,7 +15,7 @@ class Pokemon extends Component {
     return (
       <>
         {favorites.includes(id.toString()) ? (
-          <img src={favIcon} className="favorite" />
+          <img src={favIcon} className="favorite" alt="heart" />
         ) : (
           ''
         )}
