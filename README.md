@@ -14,4 +14,4 @@ Extra credit:
 - Make it pretty (CSS)
 - Add favorites list
 
-![Webpage Screenshot](src\images\webpage-screenshot.PNG)
+![Webpage Screenshot](https://github.com/Adalab/modulo-3-evaluacion-intermedia-kaylacrane/blob/master/src/images/webpage-screenshot.PNG)
