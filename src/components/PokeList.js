@@ -3,12 +3,15 @@ import Pokemon from './Pokemon';
 
 class PokeList extends Component {
   render() {
-    const pokemons = this.props.pokemons.pokemons;
-    console.log(pokemons);
-    const pokeCard = pokemons.map((pm, i) => {
-      return <Pokemon key={i} pokemon={pm} />;
+    const { pokemons } = this.props.pokemons;
+    const pokeCard = pokemons.map((pm) => {
+      const { name, id, types, url } = pm;
+      return (
+        <li key={id} className="card" id={id}>
+          <Pokemon name={name} types={types} url={url} />
+        </li>
+      );
     });
-    console.log(this.props.pokemons);
     return <ul className="list">{pokeCard}</ul>;
   }
 }

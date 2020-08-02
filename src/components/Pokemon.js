@@ -2,18 +2,20 @@ import React, { Component } from 'react';
 
 class Pokemon extends Component {
   render() {
-    const pokemon = this.props.pokemon;
-    console.log(pokemon);
-    const { name, id, types, url } = pokemon;
-    const poketypes = types.map((type) => {
-      return <li className="typeTag">{type.toUpperCase()}</li>;
+    const { name, types, url } = this.props;
+    const poketypes = types.map((type, i) => {
+      return (
+        <li key={i} className="typeTag">
+          {type.toUpperCase()}
+        </li>
+      );
     });
     return (
-      <li className="card" id={id}>
-        <img src={url} alt="pokemon" />
+      <>
+        <img src={url} alt="Pokemon" />
         <h2 className="name">{name}</h2>
         <ul className="tagsList">{poketypes}</ul>
-      </li>
+      </>
     );
   }
 }
