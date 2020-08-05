@@ -3,12 +3,14 @@ import '../stylesheets/App.scss';
 import pokedata from '../data/pokemons.json';
 import PokeList from './PokeList';
 import favIcon from '../images/heart.svg';
+import Filters from './Filters';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.favsHandler = this.favsHandler.bind(this);
-    this.state = { pokemons: pokedata, favorites: [] };
+    this.selectHandler = this.selectHandler.bind(this);
+    this.state = { pokemons: pokedata, favorites: [], typeFilter: 'all' };
   }
   favsHandler(ev) {
     const clickedPokemon = ev.currentTarget.id;
@@ -20,6 +22,10 @@ class App extends React.Component {
       updatedList = [...favsList, clickedPokemon];
     }
     this.setState({ favorites: updatedList });
+  }
+  selectHandler(event) {
+    const type = event.currentTarget.value;
+    this.setState({ typeFilter: type });
   }
   componentDidMount() {
     const storage = localStorage.getItem('favorite pokemons');
@@ -37,6 +43,13 @@ class App extends React.Component {
     }
   }
   render() {
+    const typeFilter = this.state.typeFilter;
+    const pokemonsList = this.state.pokemons;
+    const filteredList = pokemonsList.filter((pm) =>
+      pm.types.includes(typeFilter)
+    );
+    const favsList = this.state.favorites;
+
     return (
       <div className="App">
         <img
@@ -47,14 +60,13 @@ class App extends React.Component {
         <h1 className="pageTitle">My Pokemon List </h1>
         <div className="favorites-list">
           <img src={favIcon} alt="pokeheart" className="pokeheart" />
-          <span className="favorites-number">
-            {`${this.state.favorites.length}`}
-          </span>
+          <span className="favorites-number">{`${favsList.length}`}</span>
           <img src={favIcon} alt="pokeheart" className="pokeheart" />
-        </div>
+        </div>{' '}
+        <Filters selectHandler={this.selectHandler} />
         <PokeList
-          pokemons={this.state.pokemons}
-          favorites={this.state.favorites}
+          pokemons={typeFilter !== 'all' ? filteredList : pokemonsList}
+          favorites={favsList}
           favsHandler={this.favsHandler}
         />
       </div>
