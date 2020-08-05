@@ -38,17 +38,26 @@
 }
 .favorites-list {
   height: fit-content;
-  width: 65px;
+  min-width: 50px;
+  width: fit-content;
   margin: 20px auto;
   font-size: 22px;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
   .pokeheart {
     height: 16px;
   }
 }
-
+.reset-favs-button {
+  background-color: lightgreen;
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 1px 0px;
+  margin: 10px auto 0;
+}
 .list {
   display: flex;
   flex-wrap: wrap;

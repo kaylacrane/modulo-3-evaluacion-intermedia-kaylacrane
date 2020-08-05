@@ -4,12 +4,14 @@ import pokedata from '../data/pokemons.json';
 import PokeList from './PokeList';
 import favIcon from '../images/heart.svg';
 import Filters from './Filters';
+import ResetFavs from './ResetFavs';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.favsHandler = this.favsHandler.bind(this);
     this.selectHandler = this.selectHandler.bind(this);
+    this.resetHandler = this.resetHandler.bind(this);
     this.state = { pokemons: pokedata, favorites: [], typeFilter: 'all' };
   }
   favsHandler(ev) {
@@ -26,6 +28,9 @@ class App extends React.Component {
   selectHandler(event) {
     const type = event.currentTarget.value;
     this.setState({ typeFilter: type });
+  }
+  resetHandler() {
+    this.setState({ favorites: [] });
   }
   componentDidMount() {
     const storage = localStorage.getItem('favorite pokemons');
@@ -59,10 +64,13 @@ class App extends React.Component {
         />
         <h1 className="pageTitle">My Pokemon List </h1>
         <div className="favorites-list">
-          <img src={favIcon} alt="pokeheart" className="pokeheart" />
-          <span className="favorites-number">{`${favsList.length}`}</span>
-          <img src={favIcon} alt="pokeheart" className="pokeheart" />
-        </div>{' '}
+          <div>
+            <img src={favIcon} alt="pokeheart" className="pokeheart" />
+            <span className="favorites-number">{`${favsList.length}`}</span>
+            <img src={favIcon} alt="pokeheart" className="pokeheart" />
+          </div>
+          <ResetFavs resetHandler={this.resetHandler} />
+        </div>
         <Filters selectHandler={this.selectHandler} />
         <PokeList
           pokemons={typeFilter !== 'all' ? filteredList : pokemonsList}

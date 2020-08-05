@@ -11,7 +11,7 @@ class Filters extends Component {
   render() {
     return (
       <form className="filters">
-        <label htmlFor="cars">Pokemon types:</label>
+        <label htmlFor="cars">Sort by type:</label>
 
         <select name="cars" id="cars" onChange={this.selectHandlerChild}>
           <option value="all" defaultValue>
