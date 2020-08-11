@@ -11,9 +11,9 @@ class Filters extends Component {
   render() {
     return (
       <form className="filters">
-        <label htmlFor="cars">Sort by type:</label>
+        <label htmlFor="types">Sort by type:</label>
 
-        <select name="cars" id="cars" onChange={this.selectHandlerChild}>
+        <select name="types" id="types" onChange={this.selectHandlerChild}>
           <option value="all" defaultValue>
             All
           </option>
