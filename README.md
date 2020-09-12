@@ -1,4 +1,6 @@
-## Adalab Module 3 (React): Midterm Project
+## My Pokemon List
+
+Project completed during Adalab bootcamp.
 
 Requirements:
 
